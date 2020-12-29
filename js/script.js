@@ -46,6 +46,9 @@ function startGame() {
 
   // marking of cell after each turn
   cellElements.forEach((cell) => {
+
+    console.log("Cell list log: ", cell); //adding in cell list log
+
     // removing classes and events before the start of game
     cell.classList.remove(X_CLASS);
     cell.classList.remove(CIRCLE_CLASS);
@@ -62,6 +65,7 @@ function startGame() {
 function handleClick(e) {
   // selection of the marked cell
   const cell = e.target;
+  console.log("Cell click log: ", cell);
 
   // checking whose turn it is
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
@@ -82,6 +86,9 @@ function handleClick(e) {
 }
 
 function endGame(draw) {
+
+  console.log("End Game Check Log: ", draw);
+
   if (draw) {
     winningMessageTextElement.innerText = "Draw!";
   } else {
@@ -100,11 +107,14 @@ function isDraw() {
 
 // marking selected cell
 function placeMark(cell, currentClass) {
+  console.log("Selected Cell Log: ", cell);
+
   cell.classList.add(currentClass);
 }
 
 // changing turns
 function swapTurns() {
+  console.log("Whose turn log: ", circleTurn);
   circleTurn = !circleTurn;
 }
 
